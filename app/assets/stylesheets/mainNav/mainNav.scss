@@ -1,0 +1,130 @@
+$superLightGray:(rgb(223, 223, 231));
+$orange:(rgb(252,82,12));
+$dark:(rgb(36,36,40));
+$superdarkgray:(rgb(74,74,80));
+
+
+.main_nav_head{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #dfdfe7 solid 1px;
+  background: white;
+  line-height: normal;
+  height: 55px;
+}
+
+.nav-left{
+  margin-left: 20%;
+  margin-top: .5%;
+}
+
+.nav-right{
+  margin-right: 20%;
+}
+
+.far fa-user-circle{
+  color: $orange;
+  font-size: 30px;
+}
+
+#navUser {
+  font-size: 30px;
+}
+
+.nav_main_logo {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  color: #fc520c;
+  text-decoration: none;
+
+  .nav_main_logo a{
+  text-decoration: none;
+  }
+}
+
+.dash_plus_icon{
+  color: $orange;
+  font-size: 35px;
+}
+
+.nav_logout{
+  position: relative;
+  left: 50px;
+}
+
+  #dashboardDropdown{
+    position: relative;
+    left: 20px
+  }
+
+  #navCross{
+    font-size: 20px;
+  }
+
+/* Dropdown Button -----------------------------------------------*/
+.dropbtn {
+  color: $superdarkgray;
+  padding: 12px;
+  font-size: 14px;
+  border: none;
+  background:white;
+}
+.dropbtn:hover {
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+}
+.dropdown:hover {
+  cursor: pointer;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background:white;
+  min-width: 160px;
+  z-index: 50;
+  border-bottom: $superLightGray solid 1px;
+  border-right: $superLightGray solid 1px;
+  border-left: $superLightGray solid 1px;
+}
+
+/* Links inside the dropdown */
+.dropdown_content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+ 
+}
+
+.dropdown:hover .dropdown_content {
+  display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  border-left: $superLightGray solid 1px;
+  border-right: $superLightGray solid 1px;
+  color:$orange
+}  
+
+#logOut_dropdown{
+  position:absolute;
+  right: 0px;
+}
+
+#create_dropdown {
+  position:absolute;
+  right: 0px;
+}
+
+.dropdown_content a:hover {
+  background-color: $superLightGray
+}

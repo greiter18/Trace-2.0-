@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="https://i.pcmag.com/imagery/reviews/01wBgzKlCiildlmfiJHDQ5Y-9..1569474703.jpg">
+    <title> Trace</title>
+    <meta property="og:title" content="Trace" />
+    <meta property='og:image' content="<%= image_url('HomeScreen.png') %>"/>
+    <meta property="og:description"
+      content="Inspired by Strava, create your favorite running routes and workouts"
+    />
+    <meta property="og:url"
+      content="https://trace-aa.herokuapp.com/"
+    />
+    <meta property="og:author"
+      content="Gabriel Reiter"
+    />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}&map_ids=2cf9dff401d20cef&libraries=places" %>
+    <% stylesheet_link_tag    'application', media: 'all' %>
+    <% javascript_include_tag 'application' %>
+    <script src="https://kit.fontawesome.com/498721e045.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      window.jog = "<%= image_url('jog.jpg') %>"
+      window.api_key = "<%= ENV['MAPS_API_KEY'] %>"
+    </script>
+    
+    <% if current_user %>
+      <script>
+        window.currentUser = { 
+          "id": <%= current_user.id %>,
+          "email": "<%= current_user.email %>"
+          };
+      </script>
+      <% end %>
+  
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

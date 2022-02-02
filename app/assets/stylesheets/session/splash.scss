@@ -1,0 +1,176 @@
+$superLightGray:(rgb(223, 223, 231));
+$orange:(rgb(252,82,12));
+$dark:(rgb(36,36,40));
+
+*{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.splash_form{
+  margin-bottom: 80px;
+  margin-top: 80px
+}
+
+.headLine{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.splash_middle{
+  display: flex;
+  justify-content: center;
+  padding: 75px ;
+  width: 1248px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 16px;
+  padding-right: 16px;  
+}
+
+.splash_main_form{
+display: flex;
+flex-direction: column;
+}
+
+.splash_center_form{
+  display: flex;
+  justify-content: space-around ;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 40px 0px;
+  flex-direction: column;
+}
+
+.splash_buttons{
+  border: $superLightGray solid 1px;
+  color: $dark;
+  width: 300px;
+  padding: 15px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.splash_buttons a{
+  text-decoration: none;
+}
+
+#splash_demo_button{
+  display: flex;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+}
+#splash_demo_button:hover{
+  cursor: pointer;
+  background-color: $superLightGray;
+}
+
+#sign_up_button{
+  text-decoration: none;
+  background-color: rgb(50, 78, 139);
+  color: white;
+}
+#sign_up_button a{
+  text-decoration: none;
+  color: $dark;
+  border:$superLightGray solid 1px;
+}
+
+#sign_up_button:hover{
+  background-color: rgb(39, 58, 102);
+}
+
+.member_link a{
+  text-decoration: none;
+}
+
+.splash_fine_print{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  font-size: 13px;
+  margin: 20px 0px;
+}
+
+.already_a_member{
+  margin-top: 5px;
+}
+
+.member_link a{
+  text-decoration: none;
+}
+
+.or_box{
+  display: flex;
+  justify-content: space-around;
+}
+
+.or_box_or{
+  text-align: center;
+}
+
+.or_box_line{
+  border-top: $superLightGray 1px solid;
+  height: 1px;
+  width: 1px;
+  padding-left: 135px;
+  position: relative;
+  top: 9px;
+}
+
+.session_footer{
+  display: flex;
+  justify-content: space-around;
+  background: black;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  text-decoration:none;
+}
+.head_footer{
+  color: gray;
+}
+.footer_top_list{
+  color: gray;
+  font-size: 12px;
+  font-weight: bold;
+}
+ .footer {
+text-decoration:none;
+color: white;
+text-decoration:none;
+}
+
+.footer_logo{
+  color: white;
+  font-size: 24px;
+}
+
+.footer_list{
+  color: white;
+  font-size: 12px;
+}
+
+.footer_list a{
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+footer li {
+  padding:9px 0px;
+}
+
+
+
+
+
+
