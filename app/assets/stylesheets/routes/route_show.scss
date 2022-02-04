@@ -39,6 +39,7 @@ $superdarkgray:(rgb(74,74,80));
   text-decoration: none;
   color: black;
 }
+
 .routeShowTitleroute{
   font-weight: bold;
 }
@@ -47,9 +48,11 @@ $superdarkgray:(rgb(74,74,80));
   font-size: 12px;
   display: flex;
 }
+
 .routeShowTitle h1{
   padding-left: 5.5px;
 }
+
 .routesShowEdit{
   background-color: white;
   align-items: center;
@@ -60,6 +63,10 @@ $superdarkgray:(rgb(74,74,80));
   padding: 6px 12px;
   margin-left: .5%;
   font-size: 14px;
+}
+
+.routesShowEdit:hover{
+  cursor: pointer;
 }
 
 .routesShowMain{

@@ -14,6 +14,14 @@ class WorkoutShow extends React.Component{
 
   render(){
     const {workout, route, currentUser} = this.props;
+
+    let newHour = workout.hours < 10 ? 
+      `0${workout.hours}` : workout.hours
+    let newMin = workout.minutes < 10 ? 
+      `0${workout.minutes}` : workout.minutes
+    let newSec = workout.seconds < 10 ? 
+      `0${workout.seconds}`: workout.seconds
+
     return(
       <div>
         <MainNav/>
@@ -35,7 +43,7 @@ class WorkoutShow extends React.Component{
                 <h2>Date</h2>
               </div>
               <div className="workShowitem">
-                <h1>{workout.hours}:{workout.minutes}:{workout.seconds}</h1>
+                <h1>{newHour}:{newMin}:{newSec}</h1>
                 <h2>Moving Time</h2>
               </div>
               <div className="workShowitem">
