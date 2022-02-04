@@ -28,7 +28,8 @@ class WorkoutShow extends React.Component{
         <div id='workoutShow'>
           <body id="workShowBody">
             <div id="workShowhead">
-              <h1>{route.email} - {workout.run_type} </h1>
+              <i class="fas fa-caret-square-right"></i>
+              <h1> {route.email} - {workout.run_type} </h1>
             </div>
             <div className="workShowMain">
               <div className="workShowMainLeft">
