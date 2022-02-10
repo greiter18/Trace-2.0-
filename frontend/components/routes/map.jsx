@@ -124,7 +124,7 @@ class Maps extends React.Component {
     }
     this.directionsRenderer.setDirections({ routes: [] });
   }
-
+// set
    getThumbnail(res){
      debugger
     const start = 'https://maps.googleapis.com/maps/api/staticmap?';
