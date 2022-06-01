@@ -8,6 +8,11 @@ import { deleteRoute } from '../../util/route_api_util';
 class RouteShow extends React.Component{
   constructor(props){
     super(props)
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsRenderer = new google.maps.DirectionsRenderer();
+    this.renderMarkers = this.renderMarkers.bind(this);
+    this.startLocation = new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long);
+    this.endLocation = new google.maps.LatLng(this.props.route.end_lat, this.props.route.end_long) 
   }
   componentDidMount(){
   if(!this.props.route[this.props.match.params.routeId])
@@ -23,15 +28,36 @@ class RouteShow extends React.Component{
       maxZoom: 15
     };
     this.map = new google.maps.Map(this.mapstart, options)
+    this.directionsRenderer.setMap(this.map)
     // this.directionsRenderer.setMap(this.map)
+    this.renderMarkers()
   }
+
+  renderMarkers(){
+    let request = {
+      origin: this.startLocation,
+      destination: this.endLocation,
+      travelMode: google.maps.TravelMode.WALKING,
+    };
+    this.directionsService.route(request, (response,status) => {
+      if(status === 'OK'){
+        this.directionsRenderer.setDirections(response)
+      } else {
+        console.log('Directions request failed due to ', status)
+      }
+    })
+  };
 
   
   render(){
     const {route, currentUser, deleteRoute} = this.props;
+
     return(
       <div>
         <MainNav/>
+        {console.log(this.props.route)}
+        {console.log('start',this.startLocation)}
+        {console.log('end',this.endLocation)}
         <div className="routeShowAll" >
           <div className="routeShowTop">
             <div className="routeShowTitle">
@@ -48,7 +74,7 @@ class RouteShow extends React.Component{
           <div className="routesShowMain">
              {/* <div id='map' ref={(map) => (mapstart = map)}></div> */}
             {/* <img className="routeShowMap" src={route.image} /> */}
-            <div id='map' ref={(map) => (this.mapstart = map)}></div>
+            <div id='map' className="routeShowMap" ref={(map) => (this.mapstart = map)}></div>
             <div id="rtShowExtra">
               <h1> <i className="icon" id='showUserIcon' className="fas fa-user-circle"></i> By {currentUser.email}</h1>
               <h1 id='rtShowDesc'>{route.description}</h1>
