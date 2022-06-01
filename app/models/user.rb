@@ -1,21 +1,24 @@
 class User < ApplicationRecord
+  # model level validation - validates email as unique 
+  # gives us readable error messages 
     validates :email, presence: true, uniqueness: true
     validates :session_token, presence: true
     validates :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
 
+  # associations
     has_many :routes,
       foreign_key: :user_id
 
+  #through associations - avoids sql queries 
     has_many :workouts,
       through: :routes,
       source: :workouts
-    
-
 
     attr_reader :password
     after_initialize :ensure_session_token
 
+    #user auth 
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)

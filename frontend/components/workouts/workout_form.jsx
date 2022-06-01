@@ -29,6 +29,11 @@ class WorkoutForm extends React.Component{
     }
   }
 
+  handleChange(event){
+    // this.toggleDisable()
+    this.setState({search: event.target.value})
+    }
+
    toggleDisable(){
    if(e.target.value.length > 0){
       this.setState({

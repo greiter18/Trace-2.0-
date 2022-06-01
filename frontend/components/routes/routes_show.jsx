@@ -13,6 +13,20 @@ class RouteShow extends React.Component{
   if(!this.props.route[this.props.match.params.routeId])
     this.props.fetchRoute(this.props.match.params.routeId)
   }
+
+  componentDidMount(){
+    const options = {
+      center: {lat: 40.6302923, lng: -74.1077045},
+      zoom: 15,
+      mapId: '2cf9dff401d20cef',
+      clickableIcons: false,
+      maxZoom: 15
+    };
+    this.map = new google.maps.Map(this.mapstart, options)
+    // this.directionsRenderer.setMap(this.map)
+  }
+
+  
   render(){
     const {route, currentUser, deleteRoute} = this.props;
     return(
@@ -32,8 +46,9 @@ class RouteShow extends React.Component{
             <Link to={`/routes/${route.id}/edit`} ><button className="routesShowEdit">Edit</button></Link>
           </div> 
           <div className="routesShowMain">
+             {/* <div id='map' ref={(map) => (mapstart = map)}></div> */}
             {/* <img className="routeShowMap" src={route.image} /> */}
-            <img className="routeShowMap" src={route.image} />
+            <div id='map' ref={(map) => (this.mapstart = map)}></div>
             <div id="rtShowExtra">
               <h1> <i className="icon" id='showUserIcon' className="fas fa-user-circle"></i> By {currentUser.email}</h1>
               <h1 id='rtShowDesc'>{route.description}</h1>

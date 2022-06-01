@@ -1,5 +1,8 @@
 class Api::RoutesController < ApplicationController
+# controller actions 
+# RESTfull routes 
 
+  #controller action
   def create
     @route = Route.new(route_params)
     if @route.save

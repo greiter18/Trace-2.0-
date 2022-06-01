@@ -1,15 +1,26 @@
 class Api::WorkoutsController < ApplicationController
 
+#controller actions 
+#class variables - shared across all instances of the class
+#instance variables are specific to each instance of the class 
+# @ is a instance variable
+# @@ is a class variable  
+# symbol - immutable string ':'
  def index
     #@workouts = User.find(params[:user_id]).workouts
-    
-    @routes = Route.where(user_id: params[:user_id])
+    #prefetching 
+    @routes = Route.includes(:workouts).where(user_id: params[:user_id])
     #@workouts = Workout.where(route_id: params[@route.id])
+
+    #super efficient way 
+    # @workouts = current_user.workouts 
+    # debugger
     render :index 
   end
 
-  def show
+  def show # if you dont specify which view to render, rails will look for a matching one
     @workout = Workout.find(params[:id])
+    render :show
   end
 
   def create

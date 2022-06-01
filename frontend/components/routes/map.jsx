@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MapModal from './map_modal';
 import RouteNav from './routes_nav';
-import MainFooter from '../footer/main_footer'
+import MainFooter from '../footer/main_footer';
+let axios = require('axios');
 
 
 class Maps extends React.Component {
@@ -36,11 +37,25 @@ class Maps extends React.Component {
     this.searchAddress = this.searchAddress.bind(this);
     this.update = this.update.bind(this);
     this.getThumbnail = this.getThumbnail.bind(this);
-    this.startLat = this?.points[0]?.lat
-    this.startLng = this?.points[0]?.lng
-    this.endLat = this?.points[1]?.lat
-    this.endLang = this?.points[1]?.lng
+    this.startLat = this?.points[0]?.lat;
+    this.startLng = this?.points[0]?.lng;
+    this.endLat = this?.points[1]?.lat;
+    this.endLang = this?.points[1]?.lng;
+    this.tester = this.tester.bind(this);
   }
+
+  // tester(){
+  //   let  config = {
+  //     method: 'get',
+  //     url: `https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=${window.api_key}`,
+  //     headers: {'Access-Control-Allow-Origin': '*'}
+  //   };        
+  //   //https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key=AIzaSyD-zUIawAgtQ3qXH71ektYyDm_DBo-CZGo
+  //   // AIzaSyD-zUIawAgtQ3qXH71ektYyDm_DBo-CZGo
+  //   axios(config)
+  //   .then((response) => console.log(response))
+  //   .catch((error) => console.log(error));
+  // };
 
   componentDidMount(){
     const options = {
@@ -86,8 +101,14 @@ class Maps extends React.Component {
     (response, status) => {
       if (status === 'OK') {
         // const distance = response.routes[0].legs[0].distance.text;
-        let thumbnail = this.getThumbnail(response);
-        // let bounds = response.routes[0].bounds;
+        let thumbnail = this.getThumbnail(response);  
+        let directionsOptions = {
+          polylineOptions: {
+          strokeColor: 'red'
+          }
+        }
+
+        this.directionsRenderer.setDirections(directionsOptions);
         this.directionsRenderer.setDirections(response);
         this.setState({
           image: thumbnail
@@ -97,6 +118,7 @@ class Maps extends React.Component {
       }
     })
   }
+  
 
   update(field) {
 		return (e) => {
@@ -125,16 +147,29 @@ class Maps extends React.Component {
     this.directionsRenderer.setDirections({ routes: [] });
   }
 // set
+
+  // getDirections(){
+  //   //https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=YOUR_API_KEY;
+  //   const start  = `https://maps.googleapis.com/maps/api/directions/json?`
+  //   const origin = `origin=${this?.points[0]?.lat,this?.points[0]?.lng}`;
+  //   const destination = `destination${this?.points[1]?.lat},${this?.points[1]?.lng}`;
+  //   let key = `key=${window.api_key}`;
+  //   let url = [];
+  //   url.push(start,origin,destination,key)
+  //   url.join("&");
+  //   return url;
+  // }
+
    getThumbnail(res){
-     debugger
-    const start = 'https://maps.googleapis.com/maps/api/staticmap?';
+    //  debugger
+   const start = 'https://maps.googleapis.com/maps/api/staticmap?';
     const size = 'size=200x200'
     const scale = 'scale=2'
     const markers = `markers=size:tiny|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
-    const path = `path=color:0xff0000ff|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
+    //const path = `path=color:0xff0000ff|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
     let key = `key=${window.api_key}`
     let url = []
-    url.push(start,size,scale,markers,path,key)
+    url.push(start,size,scale,markers,key)
     url = url.join("&")
     return url;
   }
@@ -172,9 +207,9 @@ class Maps extends React.Component {
   render(){
     return(
       <div>
-        {/* {console.log('point0000000000000',this?.points[0]?.lat+','+this?.points[0]?.lng) || ''} */}
        <RouteNav />
       <div className="mapButtons">
+        {/* <button onClick={() => this.tester()}>Tester</button> */}
         <div id="searchBarMain">
           <form className="search-bar" onSubmit={() => this.searchAddress(address)}>
             <input id="search-bar"

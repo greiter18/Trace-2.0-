@@ -30,7 +30,7 @@ class RoutesIndex extends React.Component{
               <button className="routeIndexCreate"><Link to="/new/routes">Create New Route</Link></button>
             </div>
             <div id="routeIndexFinePrint">
-              <p className='routeIndexFinePrint'>Learn more about sharing & exporting routes to a variety of devices.</p>
+              {/* <p className='routeIndexFinePrint'>Learn more about sharing & exporting routes to a variety of devices.</p> */}
             </div>
             <div>
               <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/routes/route-list-mobile-upsell-c1aec554d010e3c86411ad560615802162318875f086d1e3ed4850d6c7014b8f.png"/>
