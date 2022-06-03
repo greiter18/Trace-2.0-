@@ -33,6 +33,7 @@ export const clearRoutes = () => {
 };
 
 export const fetchRoute = (routeId) => {
+  debugger
   return dispatch => {
     return RoutesApiUtil.fetchRoute(routeId)
       .then(route => {

@@ -6,6 +6,7 @@ import RouteShow from "./routes_show"
 const mstp = (store, ownProps) => {
   const routeId = ownProps.match.params.routeId
   return { 
+    routeId: routeId,
     route: store.entities.routes[routeId] || {},
     currentUser: store.entities.users[store.session.id],
   };
