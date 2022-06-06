@@ -30,9 +30,9 @@ class WorkoutIndex extends React.Component{
           <h1 className="workoutIndexTitle">My Workouts</h1>
           <h1 className="workoutCount">{this.props.workoutCount} {workoutOrworkouts}</h1>
         </div>
-        <table className="workoutTable">
+        <table className="mainTable">
           <tbody>
-            <tr className="workoutIndexHeader">
+            <tr className="tableHeader">
               <th>Sport</th>
               <th>Date</th>
               <th>Title</th>

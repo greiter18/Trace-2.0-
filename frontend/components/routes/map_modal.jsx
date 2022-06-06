@@ -27,7 +27,7 @@ class MapModal extends React.Component{
       user_id: this.props.session?.id,
       image: this.props?.image,
       description: this.state.description,
-      distance: 4,
+      distance: this.props.distance,
       id: this.state?.id
     }).then(this.props.history?.push("/routes"));
   }

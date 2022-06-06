@@ -266,6 +266,7 @@ class Maps extends React.Component {
       location: '',
       address: '',
       image: '',
+      distance: '',
       marks: 
       this.props.formType === "Edit Route" ?
       [{lat: this.props.route.start_lat,
@@ -286,6 +287,7 @@ class Maps extends React.Component {
     this.searchAddress = this.searchAddress.bind(this);
     this.update = this.update.bind(this);
     this.getThumbnail = this.getThumbnail.bind(this);
+    this.convertDistance = this.convertDistance.bind(this);
     this.startLat = this?.points[0]?.lat
     this.startLng = this?.points[0]?.lng
     this.endLat = this?.points[1]?.lat
@@ -329,6 +331,8 @@ class Maps extends React.Component {
     },
     (response, status) => {
       if (status === 'OK') {
+        console.log('map',response)
+        this.convertDistance(response.routes[0].legs[0].distance.text)
         let thumbnail = this.getThumbnail(response);
         this.directionsRenderer.setDirections(response);
         this.directionsRenderer.setOptions({polylineOptions: {strokeColor: 'orange', strokeWeight: 10}});
@@ -339,6 +343,16 @@ class Maps extends React.Component {
         window.alert("Directions request faile due to " + status);
       }
     })
+  }
+
+  convertDistance(distance){
+    let num = '';
+    let integers = '.1234567890'
+    for(let i = 0; i < distance.length; i++){
+      let char = distance[i];
+      if(integers.includes(char)) num += char
+    }
+     this.setState({distance: parseFloat(num)})
   }
 
   update(field) {
@@ -372,19 +386,22 @@ class Maps extends React.Component {
     const start = 'https://maps.googleapis.com/maps/api/staticmap?';
     const size = 'size=200x200'
     const scale = 'scale=2'
-    const markers = `markers=size:tiny|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
-    const path = `path=color:0xff0000ff|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
+    // const markers = `markers=size:tiny|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
+    // const path = `path=color:0xff0000ff|${this?.points[0]?.lat},${this?.points[0]?.lng}|${this?.points[1]?.lat},${this?.points[1]?.lng}`
+    let location = res.routes[0].overview_polyline;
+		location = "path=color:red|enc:".concat(location);
     let key = `key=${window.api_key}`
     let url = []
-    url.push(start,size,scale,markers,path,key)
+    url.push(start,size,scale,location,key)
     url = url.join("&")
     return url;
   }
 
   removeAllPoints(){
     if (this.points.length > 0){
-      this.points = []
-      this.setState({disabled: true})
+      this.points = [];
+      this.setState({disabled: true, distance: 0});
+      
     }
     this.directionsRenderer.setDirections({ routes: [] });
   }
@@ -434,10 +451,13 @@ class Maps extends React.Component {
         </div>
       </div>
       <div id='map' className='routeMap' ref={(map) => (this.mapstart = map)}></div> 
+      <div>
+        <h1>Distance {this.state.distance || 0} Miles</h1>
+      </div>
       <div className="modal-background" onClick={() => this.openModal()}>
         <div className='modal' onClick={(e) => e.stopPropagation()} >
           <MapModal  action={this.props?.action} cords={this.state.marks} 
-          session={this.props.session} image={this.state.image} title={this.state.title} 
+          session={this.props.session} image={this.state.image} title={this.state.title} distance={this.state.distance}
           description={this.props?.route?.description} history={this.props?.history}
           route={this.props.route} formType={this.props.formType} routeId={this.props.routeId}
           />

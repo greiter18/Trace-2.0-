@@ -31,16 +31,16 @@ $dark:(rgb(36,36,40));
   padding-bottom: 25px;
 }
 
-.workoutTable{
+.mainTable{
   margin: 0 auto ;
   font-size: 14px;
 }
 
-.workoutIndexHeader{
+.tableHeader{
   background-color: $superLightGray;
 }
 
-#workOutRow{
+#tableRow{
   border-bottom: 1px solid $superLightGray;
 }
 
@@ -56,15 +56,15 @@ table, th {
   border-bottom: 1px solid rgb(198, 198, 204); 
 };
 
-.workoutIdxLinks {
+.tableLinks {
   color: #007FB6;
 }
-.workoutIdxLinks:hover {
+.tableLinks:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.workoutIdxLinks a{
+.tableLinks a{
   text-decoration:none ;
   color:#007FB6;
 }
