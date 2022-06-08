@@ -84,7 +84,7 @@ class SessionForm extends React.Component {
         <NavBar/>
         <div className="background_image">
           <div className="form_background">
-            <body className="form_container">
+            <div className="form_container">
             <div className="form_title">
               <h1 >{formName}</h1>  
             </div>
@@ -97,16 +97,16 @@ class SessionForm extends React.Component {
                 <br/>
                 <section className="orSwitch">{OrSwitch}</section>    
                 <br/> 
-                <input className="session_form_lines" className="form_input" type="text" 
+                <input className="session_form_lines form_input" type="text" 
                 value={this.state.email} onChange={this.handleChange('email')}  placeholder={'     Your Email'}/>  
-                <input className="session_form_lines" className="form_input" type="password" 
+                <input className="session_form_lines form_input" type="password" 
                 value={this.state.password} onChange={this.handleChange('password')}  placeholder={'     Password'}/>
                 <br/>
                 <button className="session_form_lines" id="session_button">{buttonName}</button>
               </div>  
               <p className='session_fine_print'>{finePrint}</p>
             </form>    
-            </body>
+            </div>
           </div>
         </div>
       </div>

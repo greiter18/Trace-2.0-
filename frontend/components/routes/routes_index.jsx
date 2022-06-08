@@ -15,22 +15,22 @@ class RoutesIndex extends React.Component{
   }
 
   render(){
-  const routesList = this.props.routes !== undefined ?  this.props.routes.map(route => {
-    return <RoutesIndexItem route={route} deleteRoute={this.props.deleteRoute} session={this.props.session}/>
+  const routesList = this.props.routes !== undefined ?  this.props.routes.map((route, i) => {
+    return <RoutesIndexItem key={i} route={route} deleteRoute={this.props.deleteRoute} session={this.props.session}/>
   }) : null
 
     return (
       <div>
         {console.log('component store-------',this.props.routes)}
         <MainNavContainer />
-        <body id="rtIdxBody">
+        <div id="rtIdxBody">
           <div className="routeIndexTop">
             <div className="routeIndexTopLeft">
               <h1 className="routeIndexTitle">My Routes</h1>
               <button className="routeIndexCreate"><Link to="/new/routes">Create New Route</Link></button>
             </div>
             <div id="routeIndexFinePrint">
-              {/* <p className='routeIndexFinePrint'>Learn more about sharing & exporting routes to a variety of devices.</p> */}
+              <p className='routeIndexFinePrint'>Learn more about sharing & exporting routes to a variety of devices.</p>
             </div>
             <div>
               <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/routes/route-list-mobile-upsell-c1aec554d010e3c86411ad560615802162318875f086d1e3ed4850d6c7014b8f.png"/>
@@ -39,7 +39,7 @@ class RoutesIndex extends React.Component{
           <div className="routeIndexList">
             {routesList}
           </div>
-        </body>
+        </div>
         <MainFooter/>
       </div>
     )
