@@ -84,29 +84,72 @@ $superdarkgray:(rgb(74,74,80));
 
 .icon{
     font-size: 40px;
+    color: rgb(108,133,145);
   }
 
 #showUserIcon:before{
   font-size: 70px;
-  color: $superdarkgray;
+  color: rgb(108, 133, 145)
 }
 
 .routeShowMap{
-  height: 600px;
-  width: 600px;
+  height: 350px;
+  width: 45%;
   margin-left: 10%;
   padding-right: 3%;
 }
 
 
 
-#rtShowExtra{
-
+.rtShowExtra{
+  padding-left: 2em;
 }
 
-#rtShowDesc{
-  color: rgb(33,33,36);
+
+
+.rtShowExtra-main{
+  font-family: sans-serif;
+  display: flex;
+  border-bottom: 1px solid #f7f7fa;
+  padding-bottom: 1em;
+}
+
+.rtShowExtra-main-top{
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+  padding-top: .5em;
+}
+
+.rtShowExtra-main-created {
+  font-size: 12px;
+  padding-top: 0.6em;
+}
+
+.rtShowExtra-main:first-child {
+  font-size: 22px;
+}
+
+.rtShowExtra-main-mid{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 1em;
+  border-bottom: 1px solid #f7f7fa;
+  padding-bottom: 1em;
+}
+
+.rtShowDesc {
+  color: #212124;
   font-size: 14px;
-  padding-top: 40%;
-  padding-left: 10%;
+  text-align: center;
+  padding-top: 2em;
+}
+
+.rtShowDistance{
+  font-size: 20px;
+}
+
+.rtShowDistanceLower {
+  font-size: 12px;
 }

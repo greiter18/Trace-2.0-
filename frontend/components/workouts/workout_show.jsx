@@ -4,13 +4,63 @@ import MainNav from '../mainNav/main_nav'
 
 class WorkoutShow extends React.Component{
   constructor(props){
-    super(props)
+    super(props) 
+    this.state = {
+    startLocation: new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long),
+    endLocation: new google.maps.LatLng(this.props.route.end_lat, this.props.route.end_long)
+    }
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsRenderer = new google.maps.DirectionsRenderer();
+    this.renderMarkers = this.renderMarkers.bind(this);
+    this.startLocation = new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long);
+    this.endLocation = new google.maps.LatLng(this.props.route.end_lat, this.props.route.end_long);
+    this.route = '';
   }
 
   componentDidMount(){
   if(!this.props.workout[this.props.match.params.workoutId])
     this.props.fetchWorkout(this.props.match.params.workoutId)
+
+  //  if(!this.props.route[this.props.match.params.routeId]) {
+  //     this.props.fetchRoute(this.props.match.params.routeId)
+
+    this.setState({['startLocation']: new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long)});
+    this.setState({['endLocation']: new google.maps.LatLng(this.props.route.end_lat, this.props.route.end_long)}); 
+    const options = {
+      center: {lat: 40.6302923, lng: -74.1077045},
+      zoom: 15,
+      mapId: '2cf9dff401d20cef',
+      clickableIcons: false,
+      maxZoom: 15,
+      disableDefaultUI: true,
+    };
+    this.map = new google.maps.Map(this.mapstart, options);
+    this.directionsRenderer.setMap(this.map);
+    this.renderMarkers();
   }
+
+  componentDidUpdate(prevProps){
+    if(this.props.route !== prevProps.route){
+      this.renderMarkers();
+    }
+  }
+
+  renderMarkers(){
+    let request = {
+      origin: new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long),
+      destination: new google.maps.LatLng(this.props.route.end_lat, this.props.route.end_long),
+      travelMode: google.maps.TravelMode.WALKING,
+    };
+    this.directionsService.route(request, (response,status) => {
+      if(status === 'OK'){
+        this.directionsRenderer.setDirections(response);
+        this.directionsRenderer.setOptions({polylineOptions: {strokeColor: 'red', strokeWeight: 5}});
+        this.directionsRenderer.setOptions({suppressMarkers: true});
+      } else {
+        console.log('Directions request failed due to ', status)
+      }
+    })
+  };
 
   render(){
     const {workout, route, currentUser} = this.props;
@@ -25,6 +75,7 @@ class WorkoutShow extends React.Component{
     return(
       <div>
         <MainNav/>
+        {console.log('Wrkout show route-----',route)}
         <div id='workoutShow'>
           <body id="workShowBody">
             <div id="workShowhead">
@@ -54,7 +105,8 @@ class WorkoutShow extends React.Component{
             </div>
           </body>
           <div id='mapContainer'>
-          <img id="workShowMap" src={route?.image}  alt='route image'/>
+          {/* <img id="workShowMap" src={route?.image}  alt='route image'/> */}
+            <div id='map' className="routeShowMap" ref={(map) => (this.mapstart = map)}></div>
           </div>
         </div> 
       </div>

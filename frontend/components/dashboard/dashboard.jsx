@@ -17,8 +17,8 @@ class Dashboard extends React.Component{
   }
 
   render(){
-      const workoutList = this.props.workouts !== undefined ? this.props.workouts.map(workout => {
-        return <li className="feed"><Feed workout={workout} email={this.props.email} route={this.props.route}/></li>
+      const workoutList = this.props.workouts !== undefined ? this.props.workouts.map((workout, i)=> {
+        return <li className="feed" key={i}><Feed  workout={workout} email={this.props.email} route={this.props.route}/></li>
       }) :null 
 
       // const keys = this.props.workouts.map((workout) => {
@@ -44,7 +44,7 @@ class Dashboard extends React.Component{
             <Profile routeCount={this.props.routeCount} workoutCount={this.props.workoutCount} email={this.props.email}/>
           </div>
           <div className="activityFeed">
-            <p id="workoutfeed">Your Activities <i class="fas fa-chevron-down"></i></p>
+            <p id="workoutfeed">Your Activities <i className="fas fa-chevron-down"></i></p>
             <ul>{workoutList} </ul>
           </div>
           <div id="dashExtras">

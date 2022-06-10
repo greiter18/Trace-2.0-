@@ -6,7 +6,7 @@ const Profile = (props) => {
   return(
     <div className="main_profile">
       <i id="profileUser"className="fas fa-user-circle"></i>
-      <body id="profileBody">
+      <div id="profileBody">
         <h1 className="profile_email">{props.email}</h1>
         <br/>
         <div className="profile_totals">
@@ -19,7 +19,7 @@ const Profile = (props) => {
             <Link to='/routes' className="total_number">{props.routeCount || 0 }</Link>
           </div>
         </div>
-      </body>
+      </div>
     </div>
   )
 };
