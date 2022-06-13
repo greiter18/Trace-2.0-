@@ -198,3 +198,28 @@ $superdarkgray:(rgb(74,74,80));
   background-color: $superLightGray
 }
 
+.rtIdx-created {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.2em;
+  background-color: rgb(238,238,238);
+  font-size: 12px;
+  color: rgb(128,128,136);
+}
+
+.rtIdx-distance{
+  padding-bottom: 1em;
+  padding-left: 1.2em;
+}
+
+.rtIdx-Distance{
+  font-size: 24px;
+  color: rgb(41,41,45);
+  padding-bottom: 0.2em;
+}
+
+.rtIdx-DistanceLower {
+  font-size: 12px;
+  color: rgb(128, 128, 136);
+}
+

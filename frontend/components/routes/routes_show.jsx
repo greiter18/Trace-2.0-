@@ -31,10 +31,10 @@ class RouteShow extends React.Component{
 //=================
     const options = {
       center: {lat: 40.6302923, lng: -74.1077045},
-      zoom: 11,
+      zoom: 14,
       mapId: '2cf9dff401d20cef',
       clickableIcons: false,
-      maxZoom: 14,
+      maxZoom: 15,
       disableDefaultUI: true,
     };
     this.map = new google.maps.Map(this.mapstart, options);
@@ -42,7 +42,7 @@ class RouteShow extends React.Component{
     this.renderMarkers();
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps){            // takes prevProps and prevState
     if(this.props.route !== prevProps.route){
       this.renderMarkers();
     }
@@ -128,7 +128,6 @@ class RouteShow extends React.Component{
               <div className='rtShowExtra-main-bot'>
                 <p className='rtShowDesc'>{route.description}</p>
               </div>
-              
             </div>
           </div>
         </div>

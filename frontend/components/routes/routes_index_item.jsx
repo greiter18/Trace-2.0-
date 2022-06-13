@@ -46,6 +46,27 @@ import { Link, withRouter } from 'react-router-dom';
 
 
 const RoutesIndexItem = ({route, deleteRoute, session}) => {
+
+   const convertDate = (date) => {
+    const months = {
+      '01': 'January', '02': 'February', '03': 'March', '04': 'April', '05' : 'May', '06': 'June', '07': 'July', '08': 'August', '09': 'September', '10': 'October', '11': 'November', '12': 'December' 
+    };
+
+    let newDate = '';
+    for(let i = 0; i < date.length; i++){
+      let char = date[i];
+      if(char === 'T'){
+        break
+      } else {
+        newDate += char;
+      }
+    };
+    let month = newDate.slice(5,7)
+    let newMonth = months[month]
+    let year = newDate.slice(0,4)
+    let day = newDate.slice(8) // 08
+    return (newMonth +' '+ day + ', ' + year);
+  }
   return (
     <div className="routeIdxItem"> 
       <div className="routeIdxItemImage">
@@ -70,6 +91,13 @@ const RoutesIndexItem = ({route, deleteRoute, session}) => {
           </div> 
           <h1 className="rtIdxDistance">Distance</h1>
         </div> */}
+      </div>
+      <div className='rtIdx-distance'>
+          <p className='rtIdx-Distance'>{route.distance} mi</p>
+          <p className='rtIdx-DistanceLower'>Distance</p> 
+        </div>
+      <div className='rtIdx-created'>
+        Created on {convertDate(route.created_at) || 0}
       </div>
     </div>
   )
