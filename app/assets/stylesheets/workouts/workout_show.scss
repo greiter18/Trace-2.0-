@@ -2,6 +2,10 @@ $superLightGray:(rgb(223, 223, 231));
 $orange:(rgb(252,82,12));
 $dark:(rgb(36,36,40));
 
+.workoutShow-whole{
+  padding-bottom: 8em;
+}
+
 #workoutShow{
   // display: flex;
   // flex-direction: column;
@@ -10,18 +14,10 @@ $dark:(rgb(36,36,40));
   width: 104%;
   /* position: relative; */
   margin-top: 4%;
-  width: 59%;
+  width: 50%;
   margin-left: 25%;
 }
 #workShowBody{
-  // border: 1px solid $superLightGray;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // width: 800px;
-  // margin: auto;
-  // margin-top: 30px;
-
   border: 1px solid #dfdfe7;
   display: flex;
   flex-direction: column;
@@ -76,6 +72,28 @@ $dark:(rgb(36,36,40));
   font-weight: bold;
 }
 
+.workShowMainRight{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 10%;
+  padding-top: 1.5em;
+}
+
+.workShowMainRight-top{
+  display: flex;
+}
+
+.wrkOutShow-distance{
+  position: relative;
+  left: 3em;
+}
+
+.workShow-MovingTime{
+position: relative;
+left: 1em;
+}
+
 .workShowitem{
   display: flex;
   flex-direction: column;
@@ -92,16 +110,31 @@ $dark:(rgb(36,36,40));
   }
 }
 
-#workShowMap{
+.wrkOutShow-item-top{
+  font-size: 24px;
+}
+
+.wrkOutShow-item-low{
+  padding-top: .5em;
+  font-size: 12px;
+  color: rgb(98,98,108);
+}
+
+.wrkOutShow-route-title{
+  font-size: 12px;
+}
+
+.wrkOutShow-Map{
   height: 300px;
-  width: 700px;
+  //width: 700px;
+  width: 100%;
   align-items: center;
-  padding-left: 5%;
   padding-bottom: 2%;
   padding-top: 4%;
 }
 
 #mapContainer{
-  padding: 1% 2.5%;
+  // padding: 1% 2.5%;
   border: 1px solid lightgrey;
 }
+

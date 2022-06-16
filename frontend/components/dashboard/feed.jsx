@@ -4,26 +4,40 @@ import { Link, Route } from 'react-router-dom';
 
 const Feed = ({workout, email, route}) => {
   return (
-    <div id="feedCard">
-      <div id="feedCardTop">
-        <i id="runnerIcon"className="fas fa-user-circle"></i>
-        <h1 id="feedEmail"> {email}</h1>
-      </div>
-      <div id="feedCardMid"> 
-        <i id="personRunning"className="fas fa-running"></i>
-        <Link to={`/workouts/${workout.id}`} id="feedTitle"> {workout?.title}</Link>
-      </div>
-      <h1 id="feedDescription"> {workout?.description}</h1>
-      <div id="feedCardMid">
-        <div id='feedTime'>
-          <h1 id='feedTimeTime'>Time</h1>
-          <h1 id='feedTimenums'> {workout?.hours}h {workout?.minutes}m {workout?.seconds}s</h1>
+    <div className="feedCard">
+      {console.log('workout------',workout)}
+      <div className="feedCardTop">
+        <div className="feedCardTop-icons">
+          <i className="runnerIcon fas fa-user-circle"></i>
+          <i className="personRunning fas fa-running"></i>
         </div>
-      <i id='trophy'className="fas fa-trophy"></i>
+        <div className='feedCard-data'>
+          <div className="feedCardTop-data">
+            <p className="feedEmail"> {email}</p>
+            <p className='feedDate'>{workout.date}</p>
+          </div> 
+          <div className='feedCard-lowerHalf'>
+            <div className="feedCardMid"> 
+              <Link to={`/workouts/${workout.id}`} className="feedTitle"> {workout?.title}</Link>
+              <div className="feedDescription">
+                <p> {workout?.description}</p>
+              </div>
+            </div>
+            <div className="feedCardLow">
+              <div className='feedDistance'>
+                <p className='feed-mid-details-top'>Distance</p>
+                <p className='feed-mid-details-top-low'>{workout.route.distance}</p>
+              </div>
+              <div className='feedTime'>
+                <p className='feed-mid-details-top'>Time</p>
+                <p className='feed-mid-details-top-low'> {workout?.hours}h {workout?.minutes}m {workout?.seconds}s</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <Link to={`/workouts/${workout.id}`} ><img id="routefeedImage" 
-          src={route[workout?.route_id]?.image} alt="route image"
-      />
+      <Link to={`/workouts/${workout.id}`} ><img className="routefeedImage" 
+          src={route[workout?.route_id]?.image} alt="route image"/>
       </Link> 
       {/* {console.log('-------------feed',workout.id)} */}
     </div>

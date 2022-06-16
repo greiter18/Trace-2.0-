@@ -37,6 +37,7 @@ class WorkoutIndex extends React.Component{
               <th>Date</th>
               <th>Title</th>
               <th>Time</th>
+              <th>Distance</th>
               <th></th>
               <th></th>
             </tr>

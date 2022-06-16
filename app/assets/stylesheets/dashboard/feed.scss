@@ -10,73 +10,112 @@ $dark:(rgb(36,36,40));
   margin: 0px 50px;
 }
 
-#feedCard{
-  padding-left: 4%;
-}
-
-#feedEmail{
-  margin-left: 5%;
-  font-size: 14px;
-}
-
-#feedCardMid{
-  padding-top: 15px;
+.feedCard{
   display: flex;
+  flex-direction: column;
+  padding-left: 1em;
 }
 
-#runnerIcon{
-  font-size: 30px;
+.feedCardTop {
+  display: flex;
+  padding-top: 10px;
 }
 
-#personRunning{
-  font-size: 23px;
+.feedCardTop-icons{
+  display: flex;
+  flex-direction: column;
+}
+
+.feedCard-data{
+  display: flex;
+  flex-direction: column;
+  padding-left: 1em;
+}
+
+.feedCardTop-data{
+  // padding-left: 1em;
+
+}
+
+.feedEmail{
+  // margin-left: 5%;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.feedDate{
+  padding-top: .5em;
+  font-size: 12px;
+}
+
+.feedCardMid{
+  padding-top: 15px;
+}
+
+.runnerIcon{
+  font-size: 40px;
+}
+
+.fa-user-circle{
+  color: rgb(108, 133, 145);
+}
+
+.personRunning{
+  font-size: 32px;
   margin-left: 4px;
+  padding-top: 0.5em;
 }
 
-#feedTitle{
+.feedTitle{
   font-size: 22px;
-  margin-left: 6%;
+  // margin-left: 6%;
   text-decoration: none;
-  color: black
+  color: black;
+  font-weight: bold;
 }
-#feedTitle:hover{
+.feedTitle:hover{
   color: gray
 }
 
-#feedDescription{
+.feedDescription{
   font-size: 14px;
-  margin-left: 10%;
-  padding-top: 15px;
+  // margin-left: 10%;
+  padding-top: 1em;
+  color: rgb(33, 33, 36);
 }
 
-#feedTime{
-  padding-top: 15px;
-  margin-left: 10%;
+.feedCardLow{
+  display: flex;
+  padding-top: 1.5em;
 }
-#feedTimeTime{
+
+.feedTime{
+  // padding-top: 15px;
+  // margin-left: 10%;
+  margin-left: 1em;
+  border-left: 1px solid $superLightGray;
+  padding-left: 1em;  
+}
+.feed-mid-details-top{
   font-size: 12px;
+  padding-bottom: 0.5em;
+  color: rgb(98,98,108);
 }
-#feedTimenums{
+.feed-mid-details-top-low{
   font-size: 20px;
+  color: rgb(33,33,36);
 }
 
-#routefeedImage{
+.routefeedImage{
   width: 96%;
   height: 218px;
   margin-top: 50px;
   border: solid 1px $superLightGray;
 }
 
-#feedCardTop{
-  display: flex;
-  padding-top: 10px;
-}
 
-#feedCardMid{
-  display: flex;
-}
 
-#trophy{
+.trophy{
   font-size: 27px;
   margin-left: 215px;
   margin-top: 20px;

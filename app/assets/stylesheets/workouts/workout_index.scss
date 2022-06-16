@@ -4,16 +4,18 @@ $dark:(rgb(36,36,40));
 
 
 #workoutIdxBody{
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 30px;
-  padding-bottom: 30%;
+  margin-left: 20%;
+  padding-top: 4em;
+  padding-bottom: 25em;
+  width: 60%;
 }
 
 #workoutIdxBodyTop{
-  position: relative;
-  right: 15.5%;
+  // position: relative;
+  // right: 15.5%;
 }
 
 .workoutIndexTitle{
@@ -32,7 +34,7 @@ $dark:(rgb(36,36,40));
 }
 
 .mainTable{
-  margin: 0 auto ;
+  // margin: 0 auto ;
   font-size: 14px;
 }
 

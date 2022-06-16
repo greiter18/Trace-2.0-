@@ -7,7 +7,8 @@ const mstp = (store) => {
   return {
     session: store.session,
     workouts: Object.values(store.entities.workouts),
-    workoutCount: Object.values(store.entities.workouts).length 
+    workoutCount: Object.values(store.entities.workouts).length,
+    routes: store.entities.wortkout
   };
 };
 

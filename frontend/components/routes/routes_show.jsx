@@ -100,16 +100,18 @@ class RouteShow extends React.Component{
          {console.log('created at',this.props.route.created_at)}
         <div className="routeShowAll" >
           <div className="routeShowTop">
-            <div className="routeShowTitle">
-            <Link to='/routes/' className="routeShowTitleLink"><h1 >My Running Routes/   </h1></Link> 
-            <h1 className="routeShowTitleroute">{route.title}</h1>
-            </div> 
-            <div className="routeShowHeader">
-              <i id='star'className="fas fa-star"></i>  
-              <h1 className="routeShowHeaderTitle"> {route.title}</h1>
+            <div className='routeShowTop-border'>
+              <div className="routeShowTitle">
+                <Link to='/routes/' className="routeShowTitleLink"><h1 >My Running Routes/   </h1></Link> 
+                <h1 className="routeShowTitleroute">{route.title}</h1>
+              </div> 
+              <div className="routeShowHeader">
+                <i id='star'className="fas fa-star"></i>  
+                <h1 className="routeShowHeaderTitle"> {route.title}</h1>
+              </div>
+              <Link to={`/routes/`}> <button className="routesShowEdit" onClick={()=> deleteRoute(route.id)}>Delete</button></Link>
+              <Link to={`/routes/${route.id}/edit`}><button className="routesShowEdit">Edit</button></Link>
             </div>
-            <Link to={`/routes/`}> <button className="routesShowEdit" onClick={()=> deleteRoute(route.id)}>Delete</button></Link>
-            <Link to={`/routes/${route.id}/edit`}><button className="routesShowEdit">Edit</button></Link>
           </div> 
           <div className="routesShowMain">
             <div id='map' className="routeShowMap" ref={(map) => (this.mapstart = map)}></div>

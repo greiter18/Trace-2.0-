@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import MainNav from '../mainNav/main_nav'
+import MainFooter from '../footer/main_footer';
 
 class WorkoutShow extends React.Component{
   constructor(props){
@@ -76,39 +77,50 @@ class WorkoutShow extends React.Component{
       <div>
         <MainNav/>
         {console.log('Wrkout show route-----',route)}
-        <div id='workoutShow'>
-          <body id="workShowBody">
-            <div id="workShowhead">
-              <i class="fas fa-caret-square-right"></i>
-              <h1> {route.email} - {workout.run_type} </h1>
-            </div>
-            <div className="workShowMain">
-              <div className="workShowMainLeft">
-                <i id="userWorkShow" className="fas fa-user-circle"></i>
-                <div className="workShowMainLeft-inner">
-                  <h1 id='workShowTitle'> {workout.title}</h1>
-                  <h1>{workout.description}</h1>
+        <div className='workoutShow-whole'>
+          <div id='workoutShow'>
+            <body id="workShowBody">
+              <div id="workShowhead">
+                <i class="fas fa-caret-square-right"></i>
+                <h1> {route.email} - {workout.run_type} </h1>
+              </div>
+              <div className="workShowMain">
+                <div className="workShowMainLeft">
+                  <i id="userWorkShow" className="fas fa-user-circle"></i>
+                  <div className="workShowMainLeft-inner">
+                    <h1 id='workShowTitle'> {workout.title}</h1>
+                    <h1>{workout.description}</h1>
+                  </div>
                 </div>
-              </div>
-              <div className="workShowitem">
-                <h1>{workout.date}</h1>
-                <h2>Date</h2>
-              </div>
-              <div className="workShowitem">
-                <h1>{newHour}:{newMin}:{newSec}</h1>
-                <h2>Moving Time</h2>
-              </div>
-              <div className="workShowitem">
-              <h1>{route?.title}</h1>
-              <h2>Run Name</h2>
-              </div>
+                <div className="workShowMainRight">
+                  <div className="workShowMainRight-top">
+                    <div className="workShowitem">
+                      <p className='wrkOutShow-item-top'>{workout.date}</p>
+                      <p className='wrkOutShow-item-low'>Date</p>
+                    </div>
+                    <div className="workShow-MovingTime">
+                      <p className='wrkOutShow-item-top'>{newHour}:{newMin}:{newSec}</p>
+                      <p className='wrkOutShow-item-low'>Moving Time</p>
+                    </div>
+                    <div className='wrkOutShow-distance'>
+                      <p className='wrkOutShow-distance-top wrkOutShow-item-top'>{route.distance}mi</p>
+                      <p className='wrkOutShow-distance-lower wrkOutShow-item-low'>Distance</p> 
+                    </div>
+                  </div>
+                  {/* <div className="wrkOutShow-route-title">
+                    <p>{route?.title}</p>
+                    <p>Run Name</p>
+                  </div> */}
+                </div>
+              </div>  
+            </body>
+            <div id='mapContainer'>
+            {/* <img id="workShowMap" src={route?.image}  alt='route image'/> */}
+              <div id='map' className="wrkOutShow-Map" ref={(map) => (this.mapstart = map)}></div>
             </div>
-          </body>
-          <div id='mapContainer'>
-          {/* <img id="workShowMap" src={route?.image}  alt='route image'/> */}
-            <div id='map' className="routeShowMap" ref={(map) => (this.mapstart = map)}></div>
           </div>
         </div> 
+        <MainFooter/>
       </div>
     )
   }
