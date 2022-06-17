@@ -8,7 +8,6 @@ export const createRoute = route => {
 
 
 export const updateRoute = route => {
-  // debugger
   return $.ajax({
     method: "PATCH",
     url: `/api/routes/${route.id}`,
@@ -30,7 +29,6 @@ export const fetchRoutes = (id) => (
   })
 );
 export const deleteRoute = (routeId) => {
-  // debugger
   return $.ajax({
     method: "DELETE",
     url: `/api/routes/${routeId}`,

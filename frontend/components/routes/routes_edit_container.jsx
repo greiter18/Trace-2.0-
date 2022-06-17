@@ -17,7 +17,6 @@ class EditRouteForm extends React.Component{
   render(){
     const { routes, formType, action, history } = this.props;
     const routeId = this.props.match.params.routeId;
-    // debugger
     return routes[routeId] ? (
       <div>
         <Map route={routes[routeId]} formType={formType} action={action} routeId={routeId} history={history}/>
@@ -27,8 +26,6 @@ class EditRouteForm extends React.Component{
 };
 
 const mstp = (store, ownProps) => {
-  // console.log('container------',store)
-  // debugger
   const routeId = ownProps.match.params.routeId
   return {
     routes: store.entities.routes,
@@ -38,7 +35,6 @@ const mstp = (store, ownProps) => {
 };
 
 const mdtp = dispatch => {
-  // debugger
   return {
     fetchRoute: routeId => dispatch(fetchRoute(routeId)),
     action: routeId => dispatch(updateRoute(routeId))

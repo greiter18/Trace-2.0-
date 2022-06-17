@@ -85,38 +85,11 @@ class MapModal extends React.Component{
           <div className='modal-buttons'>
             <h1 className="modal-edit-button" onClick={this.openModal}>Edit Route</h1>
             <button id="modalSave" className="modal-save-button" disabled={!this.state.title}>Save to My Routes</button>
-            {/* {console.log({
-              title: this.state.title,
-              start_long:this.props.cords[0]?.lng,
-              start_lat:this.props.cords[0]?.lat,
-              end_long:this.props.cords[1]?.lng,
-              end_lat:this.props.cords[1]?.lat,
-              user_id: this.props.session?.id,
-              image: this.props?.image,
-              description: this.state?.description,
-              distance: 4,
-              id: this.state?.id
-              
-            },'action---------',this.props?.action)} */}
           </div>
         </form>
-        {/* {console.log('modal startcords----------',beginPoint?.lng)} */}
       </div>
     )
   }
 }
 
 export default MapModal;
-
-// const funcName = () => { 
-//   openModal()
-// }
-// const openModal = () => {
-//   return 7
-// }
-// funcName // => 7
-// openModal // => 7
-
-// const click = (callback) => {
-//   callback() 
-// }

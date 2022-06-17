@@ -22,9 +22,6 @@ class WorkoutShow extends React.Component{
   if(!this.props.workout[this.props.match.params.workoutId])
     this.props.fetchWorkout(this.props.match.params.workoutId)
 
-  //  if(!this.props.route[this.props.match.params.routeId]) {
-  //     this.props.fetchRoute(this.props.match.params.routeId)
-
     this.setState({['startLocation']: new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long)});
     this.setState({['endLocation']: new google.maps.LatLng(this.props.route.end_lat, this.props.route.end_long)}); 
     const options = {
@@ -76,7 +73,6 @@ class WorkoutShow extends React.Component{
     return(
       <div>
         <MainNav/>
-        {console.log('Wrkout show route-----',route)}
         <div className='workoutShow-whole'>
           <div id='workoutShow'>
             <body id="workShowBody">

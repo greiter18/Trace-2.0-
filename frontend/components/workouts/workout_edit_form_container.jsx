@@ -19,13 +19,11 @@ class EditWorkoutForm extends React.Component{
     const { currentUser, workout, formType, action, history, 
        fetchRoutes, session, routes, route } = this.props;
     const workoutId = this.props.match.params?.workoutId;
-    // debugger
     return workout[workoutId] ? (
       <div>
         <WorkoutForm workout={workout[workoutId]} formType={formType} action={action} history={history}
-         fetchRoutes={fetchRoutes} currentUser={currentUser} session={session }
-          routes={routes} route={route} workoutId={workoutId}
-        />
+          fetchRoutes={fetchRoutes} currentUser={currentUser} session={session }
+          routes={routes} route={route} workoutId={workoutId}/>
       </div>
     ): null;
   }
@@ -36,6 +34,7 @@ const mstp = (store, ownProps) => {
     id: ownProps.match.params.workoutId,
     workout: store.entities.workouts,
     route: store.entities.workouts.route,
+    
     formType: "Edit",
     routes: Object.values(store.entities.routes),
     session: store.session,

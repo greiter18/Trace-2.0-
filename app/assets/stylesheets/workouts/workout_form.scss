@@ -2,12 +2,17 @@ $superLightGray:(rgb(223, 223, 231));
 $orange:(#fc5200);
 $dark:(rgb(36,36,40));
 
-#workoutFormBody{
-  display: flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
+.workoutFormBody{
+  // display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  // flex-direction: column;
   padding-bottom: 10%;
+  margin: margin;
+  /* padding-left: 27em; */
+  position: relative;
+  left: 27em;
+  width: fit-content;
 }
 
 .woFormTitle{
@@ -16,15 +21,15 @@ $dark:(rgb(36,36,40));
   line-height: 41px;
   margin-top: 0;
   padding: 10px 0;
-  position: relative;
-  right: 155px;
+  // position: relative;
+  // right: 155px;
 }
 .workinput{
   padding-left: 10px;
-  padding-top: 10px;
+  // padding-top: 10px;
 }
 .workoutFormlabel{
-  color: #242428;
+  color: rgb(33,33,36);
   font-size: 12px;
   margin-top: 0;
   margin-bottom: 5px;
@@ -33,7 +38,7 @@ $dark:(rgb(36,36,40));
 }
 .topWorkoutForm{
   display: flex;
-  justify-content:space-between;
+  // justify-content:space-between;
   border-bottom: 1px solid $superLightGray;
   padding-bottom: 20px;
   padding-top: 20px;
@@ -48,9 +53,10 @@ $dark:(rgb(36,36,40));
 
 .midWorkoutForm-top{
   display: flex;
-  justify-content:space-between;
-  
+  // justify-content:space-between;
+  padding-bottom: 2em;
 }
+
 .lowWorkoutForm{
   display: flex;
   padding-bottom: 20px;
@@ -72,12 +78,12 @@ $dark:(rgb(36,36,40));
 }
 
 .woTimeEntry{
-  padding: 0
+  padding-left: 5em;
 }
 
 .timeInpute{
 text-align: right;
-width: 65px;
+width: 3.5em;
 border: $superLightGray 1px solid;
 height: 34px;
 font-size: 14px;
@@ -126,9 +132,13 @@ input::-webkit-inner-spin-button {
  }
 
  #workDescBox{
-   width: 500px;
-   height: 100px;
+  width: 500px;
+  height: 100px;
   font-size: 16px;
+
+  input{
+    padding-top: 0.3em;
+    }
  }
 
  .cancelButton{
@@ -140,7 +150,11 @@ input::-webkit-inner-spin-button {
  #run_type{
    width: 120px
  }
- #date_entry{
-   width: 200px;
+
+ .workoutForm-date {
+   padding-left: 5em;
+ }
+ .date_entry{
+  //  width: 200px;
    text-align: center;
  }

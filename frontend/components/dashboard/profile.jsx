@@ -5,15 +5,12 @@ const Profile = ({email,workoutCount,routeCount, workouts}) => {
   const distanceTotal = () => {
     let total = 0
     Object.values(workouts).forEach(element => {
-      console.log('total each -------',element.route.distance)
       total += element.route.distance
     });
-    console.log('total-----',)
     return Math.round(total * 100) / 100;
   }
   return(
     <div className="main_profile">
-      
       <i id="profileUser"className="fas fa-user-circle"></i>
       <div id="profileBody">
         <h1 className="profile_email">{email}</h1>

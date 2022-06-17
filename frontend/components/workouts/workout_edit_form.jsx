@@ -20,19 +20,14 @@ class EditWorkout extends React.Component {
   render(){
     if(!workout) return null
 
-    let routesList = this.props?.routes.map(route => {
-      return <option value={route.id}>{route.title}</option> 
+    let routesList = this.props?.routes.map((route, i) => {
+      return <option value={route.id}>{route.title} key={i}</option> 
     })
     return(
-      // <div>
-      //   <WorkoutForm 
-      //   update={update}
-      //   workout={workout}
-      //   />
-        <div>
+      <div>
         <form onSubmit={this.handleSubmit}>
           <div className="topWorkoutForm">
-            <label className="workoutFormlabel" className="workoutFormlabel">Route </label> 
+            <label className="workoutFormlabel workoutFormlabel">Route </label> 
             <select onChange={this.handleChange('route_id')} className="routeOptions">
               <option className="routeOptionschoices" value="" disabled selected>Choose a route</option>
               {routesList}
@@ -46,7 +41,7 @@ class EditWorkout extends React.Component {
             <input type="text" value={this.props.title} onChange={this.handleChange('title')} placeholder={'Evening Run'}/>
           </div>
           <div className="lowWorkoutForm">
-           <label className="workoutFormlabel">Type</label> 
+          <label className="workoutFormlabel">Type</label> 
             <select onChange={this.handleChange('run_type')}>
               <option>run</option>
               <option>walk</option>
@@ -59,9 +54,8 @@ class EditWorkout extends React.Component {
           <Link to='/'>Cancel</Link>
         </form>
       </div>
-
     )
   }
-}
+};
 
 export default EditWorkout;

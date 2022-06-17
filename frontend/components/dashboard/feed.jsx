@@ -5,7 +5,6 @@ import { Link, Route } from 'react-router-dom';
 const Feed = ({workout, email, route}) => {
   return (
     <div className="feedCard">
-      {console.log('workout------',workout)}
       <div className="feedCardTop">
         <div className="feedCardTop-icons">
           <i className="runnerIcon fas fa-user-circle"></i>
@@ -39,7 +38,6 @@ const Feed = ({workout, email, route}) => {
       <Link to={`/workouts/${workout.id}`} ><img className="routefeedImage" 
           src={route[workout?.route_id]?.image} alt="route image"/>
       </Link> 
-      {/* {console.log('-------------feed',workout.id)} */}
     </div>
   )
 }

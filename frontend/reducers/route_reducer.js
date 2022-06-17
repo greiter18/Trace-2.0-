@@ -15,24 +15,20 @@ const routeReducer = (state = {}, action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_ROUTE:
-      //debugger
       const routeState = Object.assign({}, state);
       let id = Object.keys(action.route)[0] // 107
       routeState[id] = action.route[id];
       return routeState;
       // return action.route
     case RECEIVE_ALL_ROUTES:
-      //debugger
       return Object.assign({}, state, action.routes)
     case REMOVE_ROUTE:
-      // debugger
       let newState = Object.assign({}, state, action.routes);
       delete newState[action.routeId];
       return newState;
     case LOGOUT_CURRENT_USER:
       return {}
     case CLEAR_ROUTES:
-      // debugger
       return {}
     default:
       return state;

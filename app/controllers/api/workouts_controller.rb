@@ -14,7 +14,6 @@ class Api::WorkoutsController < ApplicationController
 
     #super efficient way 
     # @workouts = current_user.workouts 
-    # debugger
     render :index 
   end
 

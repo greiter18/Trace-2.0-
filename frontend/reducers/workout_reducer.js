@@ -15,7 +15,11 @@ const workoutReducer = (state = {}, action) => {
   Object.freeze(state)
   switch (action.type) {
     case RECEIVE_WORKOUT:
-      return action.workout
+      const workoutState = Object.assign({}, state);
+      let id = Object.keys(action.workout)[0];
+      workoutState[id] = action.workout[id];
+      return workoutState;
+      // return action.workout
     case RECEIVE_ALL_WORKOUTS:
       return Object.assign({}, state, action.workouts )
     case REMOVE_WORKOUT:
@@ -25,7 +29,6 @@ const workoutReducer = (state = {}, action) => {
     case LOGOUT_CURRENT_USER:
       return  {}
     case CLEAR_WORKOUTS:
-      // debugger
       return  {}
     default:
       return state;

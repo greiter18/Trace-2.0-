@@ -14,8 +14,8 @@ class WorkoutIndex extends React.Component{
   }
 
   render(){
-    const workoutList = this.props.workouts !== undefined ? this.props.workouts.map(workout => {
-      return <WorkoutIndexItem workout={workout} deleteWorkout={this.props.deleteWorkout}/> 
+    const workoutList = this.props.workouts !== undefined ? this.props.workouts.map((workout, i) => {
+      return <WorkoutIndexItem workout={workout} deleteWorkout={this.props.deleteWorkout} key={i}/> 
     }) :null 
 
     const workoutOrworkouts = this.props.workoutCount === 1 ?
@@ -24,7 +24,6 @@ class WorkoutIndex extends React.Component{
   return (
     <div>
       <MainNavContainer/>
-      {/* {console.log('------------count',this.props.workoutCount)} */}
       <div id="workoutIdxBody">
         <div id="workoutIdxBodyTop">
           <h1 className="workoutIndexTitle">My Workouts</h1>

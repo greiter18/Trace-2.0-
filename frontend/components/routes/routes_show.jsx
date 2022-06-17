@@ -47,9 +47,11 @@ class RouteShow extends React.Component{
       this.renderMarkers();
     }
   }
+
 //===========================================================================================
 //creating of the map and using the route prop's details to draw out the polyline of the map
 //===========================================================================================
+
   renderMarkers(){
     let request = {
       origin: new google.maps.LatLng(this.props.route.start_lat, this.props.route.start_long),
@@ -62,7 +64,6 @@ class RouteShow extends React.Component{
         this.directionsRenderer.setOptions({polylineOptions: {strokeColor: 'red', strokeWeight: 5}});
         this.directionsRenderer.setOptions({suppressMarkers: true});
       } else {
-        console.log('Directions request failed due to ', status)
       }
     })
   };
@@ -97,7 +98,6 @@ class RouteShow extends React.Component{
     return(
       <div>
         <MainNav/>
-         {console.log('created at',this.props.route.created_at)}
         <div className="routeShowAll" >
           <div className="routeShowTop">
             <div className='routeShowTop-border'>

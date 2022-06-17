@@ -37,11 +37,3 @@ const MainNav = ({logout}) => {
 
 export default MainNav;
 
-
-// const add5 = name => {
-//   return differentFunction()
-// }
-
-// const differentFunction = (name) => { // component
-//   console.log('Hey im different')
-// }

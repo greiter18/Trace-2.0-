@@ -21,20 +21,6 @@ class Dashboard extends React.Component{
         return <li className="feed" key={i}><Feed  workout={workout} email={this.props.email} route={this.props.route}/></li>
       }) :null 
 
-      // const keys = this.props.workouts.map((workout) => {
-      //   return workout.id
-      // })
-      // let top = Math.max.apply(Math, keys)
-      // let workouts = this.props.workouts
-      // let latestWorkout = () =>  {
-      //   for (i = 0; i < workouts.length; i++){
-      //     console.log('---------workouts',workouts)
-      //     let workout = workouts[i]
-      //     if(workout.id === top){
-      //       return workout
-      //       }
-      //     }
-      //   }
     return(
       <div className="main_dash">
         <MainNavContainer/>
