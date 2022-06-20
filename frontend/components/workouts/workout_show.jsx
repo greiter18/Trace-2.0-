@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import MainNav from '../mainNav/main_nav'
 import MainFooter from '../footer/main_footer';
+import GrayFooter from '../footer/grayFooter';
 
 class WorkoutShow extends React.Component{
   constructor(props){
@@ -116,6 +117,7 @@ class WorkoutShow extends React.Component{
             </div>
           </div>
         </div> 
+        <GrayFooter/>
         <MainFooter/>
       </div>
     )

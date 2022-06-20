@@ -55,8 +55,9 @@ $superdarkgray:(rgb(74,74,80));
 .routeIndexList{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  //justify-content: center;
   padding-top: 50px;
+  padding-bottom: 7em;
 }
 
 .routeIndexFinePrint{

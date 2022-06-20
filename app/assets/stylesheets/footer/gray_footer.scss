@@ -1,0 +1,38 @@
+$superLightGray: (rgb(223, 223, 231));
+$superSuperLightGray: (rgb(246, 246, 249));
+$orange: (rgb(252, 82, 12));
+$dark: (rgb(36, 36, 40));
+
+.gray_footer-main{
+  display: flex;
+  justify-content: space-around;
+  color: rgb(33,33,36);
+  background-color: $superSuperLightGray;
+  // font-family: 'Montserrat', sans-serif;
+
+  h1{
+    font-size: 20px;
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+
+  p{
+    font-size: 14px;
+  }
+}
+
+.gray_footer-link{
+  text-decoration: none;
+  color: rgb(35, 35, 36);
+  font-size: 14px;
+}
+
+.gray_footer-blog{
+  padding-bottom: 3em;
+  position: relative;
+  right: 13em;
+}
+
+.gray_footer-blog-body{
+  padding-bottom: 1em;
+}

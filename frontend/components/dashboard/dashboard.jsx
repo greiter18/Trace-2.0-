@@ -17,7 +17,7 @@ class Dashboard extends React.Component{
   }
 
   render(){
-      const workoutList = this.props.workouts !== undefined ? this.props.workouts.map((workout, i)=> {
+      const workoutList = this.props.workouts !== undefined ? this.props.workouts.reverse().map((workout, i)=> {
         return <li className="feed" key={i}><Feed  workout={workout} email={this.props.email} route={this.props.route}/></li>
       }) :null 
 

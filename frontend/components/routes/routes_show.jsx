@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import MainNav from './../mainNav/main_nav';
 import MainFooter from '../footer/main_footer'
 import axios from 'axios';
+import GrayFooter from '../footer/grayFooter';
 
 class RouteShow extends React.Component{
   constructor(props){
@@ -133,6 +134,7 @@ class RouteShow extends React.Component{
             </div>
           </div>
         </div>
+        <GrayFooter/>
         <MainFooter/>
       </div>
     )

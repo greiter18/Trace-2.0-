@@ -1,17 +1,21 @@
-import React from 'react'
-import { deleteWorkout } from '../../util/workout_api_util'
-import MainNavContainer from '../mainNav/main_nav_container'
-import WorkoutIndexItem from './workout_index_item'
-import MainFooter from '../footer/main_footer'
+import React from 'react';
+import { deleteWorkout } from '../../util/workout_api_util';
+import MainNavContainer from '../mainNav/main_nav_container';
+import WorkoutIndexItem from './workout_index_item';
+import MainFooter from '../footer/main_footer';
+import GrayFooter from '../footer/grayFooter';
 
 class WorkoutIndex extends React.Component{
   constructor(props){
     super(props)
+    //this.latestWorkout = this.latestWorkout.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchWorkouts(this.props.session.id)
   }
+
+ 
 
   render(){
     const workoutList = this.props.workouts !== undefined ? this.props.workouts.map((workout, i) => {
@@ -19,7 +23,7 @@ class WorkoutIndex extends React.Component{
     }) :null 
 
     const workoutOrworkouts = this.props.workoutCount === 1 ?
-     `Workout` : 'Workouts'
+     `Workout` : 'Workouts';
   
   return (
     <div>
@@ -44,6 +48,7 @@ class WorkoutIndex extends React.Component{
           </tbody>
         </table>
       </div>
+      <GrayFooter/>
       <MainFooter/>
     </div>
   )

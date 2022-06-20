@@ -25,7 +25,7 @@ const Feed = ({workout, email, route}) => {
             <div className="feedCardLow">
               <div className='feedDistance'>
                 <p className='feed-mid-details-top'>Distance</p>
-                <p className='feed-mid-details-top-low'>{workout.route.distance}</p>
+                <p className='feed-mid-details-top-low'>{workout.route.distance} mi</p>
               </div>
               <div className='feedTime'>
                 <p className='feed-mid-details-top'>Time</p>
