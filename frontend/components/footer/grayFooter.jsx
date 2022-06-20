@@ -9,13 +9,7 @@ import {Link} from 'react-router-dom';
     fetchWorkouts(session.id)
   }, [])
 
-// const sorted = Object.keys(obj)
-//   .sort()
-//   .reduce((accumulator, key) => {
-//     accumulator[key] = obj[key];
 
-//     return accumulator;
-//   }, {});
   let workout = workouts.reverse()[0];
   return (
     <div className='gray_footer-main'>
