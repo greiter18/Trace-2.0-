@@ -17,9 +17,27 @@ class Dashboard extends React.Component{
   }
 
   render(){
-      const workoutList = this.props.workouts !== undefined ? this.props.workouts.reverse().map((workout, i)=> {
-        return <li className="feed" key={i}><Feed  workout={workout} email={this.props.email} route={this.props.route}/></li>
-      }) :null 
+      // const workoutList = this.props.workouts !== undefined ? this.props.workouts.reverse().map((workout, i)=> {
+      //   return <li className="feed" key={i}><Feed  workout={workout} email={this.props.email} route={this.props.route}/></li>
+      // }) : <h1> No Workouts. Created a workout here or create your route first here </h1> 
+
+      const workoutList = this.props?.workouts.length > 0 ?
+        this.props.workouts?.reverse().map((workout, i) => {
+        return (
+          <li className="feed" key={i}><Feed  workout={workout} email={this.props.email} route={this.props.route}/></li>
+          )
+        }): <div className='emtpyfeed'>
+              <h1 className='emtpyfeed-text'><section>No Workouts</section> <br /> Please Create a Workout <Link className='emptyfeed-link' to='/new/workouts'>Here</Link> or Create a Route First <Link className='emptyfeed-link' to='/new/routes'>Here</Link>
+              </h1>
+              <br />
+              <div className='emtpyfeed-icons'>
+                <i className="fas fa-person"></i>...
+                <i className="fas fa-walking"></i>...
+                <i className="fas fa-running"></i>...
+                <i className="fas fa-biking"></i>...
+              </div>
+            </div> 
+        ;
 
     return(
       <div className="main_dash">
@@ -30,8 +48,8 @@ class Dashboard extends React.Component{
             <Profile workouts={this.props.workouts} routeCount={this.props.routeCount} workoutCount={this.props.workoutCount} email={this.props.email}/>
           </div>
           <div className="activityFeed">
-            <p id="workoutfeed">Your Activities <i className="fas fa-chevron-down"></i></p>
-            <ul>{workoutList} </ul>
+            {this.props.workouts.length ? <p id="workoutfeed">Your Activities <i className="fas fa-chevron-down"></i></p> : ''}
+            <ul>{workoutList}</ul>
           </div>
           <div id="dashExtras">
             <h1 className="dashExtrasTitle">
@@ -41,6 +59,7 @@ class Dashboard extends React.Component{
               Join a run or cycling Challenge to stay on top of your game, 
               earn new achievements and see how you stack up.
             </p>
+            <i class="fa-solid fa-person-simple"></i>
             <h1 className="dashExtrasTitle">
               Clubs
             </h1>

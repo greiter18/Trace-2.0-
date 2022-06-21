@@ -80,6 +80,35 @@ $dark:(rgb(36,36,40));
   
 }
 
+.emtpyfeed{
+  position: relative;
+  bottom: 4em;
+}
+
+.emtpyfeed-text{
+  text-align: center;
+  padding-bottom: 3em;
+  
+  section{
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+
+
+.emptyfeed-link{
+  color: $orange;
+  text-decoration: none;
+}
+
+
+.emtpyfeed-icons{
+  color: black;
+  font-size: 54px;
+  text-align: center;
+}
+
 .dashExtrasTitle{
   font-size: 15px;
   padding-top: 70px;
