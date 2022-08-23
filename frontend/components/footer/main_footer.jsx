@@ -8,7 +8,7 @@ const MainFooter = (props) => {
             <div className="main_footer">
               <ul>
                 <li><Link to='/dashboard' className="main_footer_logo">TRACE</Link>  </li> 
-                <li className="main_footer_list"><a href="https://github.com/greiter18/Trace" target="_blank">GitHub - Trace</a></li>
+                <li className="main_footer_list"><a href="https://github.com/greiter18/Trace-2.0-" target="_blank">GitHub - Trace</a></li>
               </ul>
               <ul>
                 <li className="main_footer_top_list">Technologies</li>
