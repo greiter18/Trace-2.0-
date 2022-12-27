@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
                 <br/>
                 <section className="orSwitch">{OrSwitch}</section>    
                 <br/> 
-                <input className="session_form_lines form_input" type="text" 
+                <input className="session_form_lines form_input" type="email" 
                 value={this.state.email} onChange={this.handleChange('email')}  placeholder={'     Your Email'}/>  
                 <input className="session_form_lines form_input" type="password" 
                 value={this.state.password} onChange={this.handleChange('password')}  placeholder={'     Password'}/>
