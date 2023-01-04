@@ -27,7 +27,7 @@ $dark:(rgb(36,36,40));
   align-items: center;
   flex-direction: column;
   position: relative;
-  top: 150px;
+  top: 5em;
   width: 400px;
   height: auto;
   background:rgba(0,0,0,0.75);
@@ -117,7 +117,7 @@ $dark:(rgb(36,36,40));
 }
 
 .orSwitch{
-  font-size: 17px;
+  font-size: 19px;
   color: white;
   // color:rgba(235, 235, 235, .8);
   margin-bottom: 25px;
@@ -133,6 +133,7 @@ $dark:(rgb(36,36,40));
   font-weight: bold;
   margin-top: 50px;
   border-radius: 2px;
+  border: none;
 }
 
 #session_button:hover{
@@ -152,7 +153,7 @@ $dark:(rgb(36,36,40));
   }
 
 .background_image{
-  background-image: image_url('jog.jpg');
+  // background-image: image_url('jog2.jpg');
   background-size: cover;
   background-position: center;
   height: 900px;
