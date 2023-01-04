@@ -3,8 +3,9 @@ import NavBar from './nav_bar'
 import { Link, withRouter } from 'react-router-dom';
 import { render } from 'react-dom';
 import { REMOVE_SESSION_ERROR } from '../../actions/session_actions';
+//import image from '../../../app/assets/images/jog1.jpg'
 
-
+let num = Math.floor(Math.random() * 5);
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -60,12 +61,18 @@ class SessionForm extends React.Component {
       buttonName = "Sign Up"
     }
 
-    let formName;
-    if (this.props.formType === 'login'){
-      formName = 'Log In'
-    } else {
-      formName = "Join Trace today, it's Free."
+    let formName = () =>{
+      if (this.props.formType === 'login'){
+        return <p>Log In</p>
+      } else {
+        return  <p> Join Trace today,<br/> it's Free.</p>
+      }
     }
+    // if (this.props.formType === 'login'){
+    //   formName = 'Log In'
+    // } else {
+    //   formName =
+    // }
 
     let OrSwitch;
     if(this.props.formType === 'login'){
@@ -80,13 +87,13 @@ class SessionForm extends React.Component {
     } 
 
     return (
-      <div>
+      <div className="session_form">
         <NavBar/>
-        <div className="background_image">
+        <div className="background_image" style={{backgroundImage: `url(jog${num}.jpg)`}} >
           <div className="form_background">
             <div className="form_container">
             <div className="form_title">
-              <h1 >{formName}</h1>  
+              <h1 >{formName()}</h1>  
             </div>
             <section className='error_message'>{showErrors}</section>
             <form className="session_form" onSubmit={this.handleSubmit}>
